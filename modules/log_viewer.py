@@ -1,4 +1,4 @@
-# python log_viewer.py --user_key {USER_KEY} --tradeType {spot} --session_id {session_id} --save_log {true/false}
+# python log_viewer.py --user_key {USER_KEY} --session_id {session_id} --save_log {true/false}
 
 import json
 import argparse
@@ -40,21 +40,19 @@ def on_error(ws, error):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="WebSocket Real-Time Log Viewer")
-    parser.add_argument("--user_key", required=True, help="User API Key (api_key)")
-    parser.add_argument("--tradeType", required=True, help="TradeType - spot/futures")
+    parser.add_argument("--user_key", required=True, help="User API Key")
     parser.add_argument("--session_id", required=True, help="Session ID")
     parser.add_argument("--save_log", default="false", help="Whether to save log to file (true/false)")
     args = parser.parse_args()
 
-    # ✔ 변수 수정: global 제거
     save_log = args.save_log.lower() == "true"
 
     if save_log:
-        filename = f"log_{args.user_key}_{args.session_id}.txt"
+        filename = f"log_{args.session_id}.txt"
         log_file = open(filename, "a", encoding="utf-8")
         print(f"📝 Logging to {filename}")
 
-    ws_url = f"wss://aifapbt.fin.cloud.ainode.ai/{args.user_key}/logs/ws/{args.session_id}?tradeType={args.tradeType}&api_key={args.user_key}"
+    ws_url = f"wss://aifapbt.fin.cloud.ainode.ai/logs/ws/{args.session_id}?user_key={args.user_key}"
 
     ws = websocket.WebSocketApp(
         ws_url,
