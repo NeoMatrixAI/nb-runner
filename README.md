@@ -1,6 +1,7 @@
 # nb-runner 🚀
 
-[![Discord](https://img.shields.io/badge/Discord-2319DC)](https://discord.com/invite/Xn26Q42DXD)[![NeoMatrix](https://img.shields.io/badge/Neomatrix-white)](https://discord.com/invite/Xn26Q42DXD)
+[![NeoMatrix](https://img.shields.io/badge/Neomatrix-white)]([https://discord.com/invite/Xn26Q42DXD](https://neomatrix.ai))[![Website](https://img.shields.io/badge/Website-2319DC)](https://neomatrix.ai)
+[![Invite-link](https://img.shields.io/badge/Discord-white)](https://discord.com/invite/Xn26Q42DXD)[![Discord](https://img.shields.io/badge/Invitation-2319DC)](https://discord.com/invite/Xn26Q42DXD)
 ---
 [![English](https://img.shields.io/badge/docs-English-blue)](./README.md) [![한국어](https://img.shields.io/badge/docs-한국어-red)](./docs/README.ko.md)
 [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md)
