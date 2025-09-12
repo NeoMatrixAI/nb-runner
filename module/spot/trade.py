@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import math
 from typing import List, Optional
-from module.spot import market
+from drive.MyDrive.NeoMatrixAI.module.spot import market
 
 def batch_orders(USER_KEY: str, symbol: Optional[str], batchMode: str, orderList: List) -> pd.DataFrame:
     for order in orderList:
@@ -32,14 +32,14 @@ def batch_orders(USER_KEY: str, symbol: Optional[str], batchMode: str, orderList
     data = response.json()['data']
     
     rows = []
-    # 성공 리스트 처리
+    # Success List Process
     for item in data.get('successList', []):
         orderId = item.get('orderId', '')
         clientOid = item.get('clientOid', '')
         result = "success"
         rows.append([orderId, clientOid, result, "", ""])
     
-    # 실패 리스트 처리
+    # Failure List Process
     for item in data.get('failureList', []):
         orderId = item.get('orderId', '')
         clientOid = item.get('clientOid', '')
