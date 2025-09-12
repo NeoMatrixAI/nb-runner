@@ -28,7 +28,7 @@ def batch_orders(USER_KEY: str, symbol: Optional[str], batchMode: str, orderList
         "orderList": orderList,
     }
     
-    res = requests.post(url, json=json, headers=headers)
+    response = requests.post(url, json=json, headers=headers)
     data = response.json()['data']
     
     rows = []
