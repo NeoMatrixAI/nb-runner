@@ -1,41 +1,58 @@
-# nb-runner 🚀
+# nb-runner
 
-[![NeoMatrix](https://img.shields.io/badge/Neomatrix-white)]([https://discord.com/invite/Xn26Q42DXD](https://neomatrix.ai))[![Website](https://img.shields.io/badge/Website-2319DC)](https://neomatrix.ai)
-[![Invite-link](https://img.shields.io/badge/Discord-white)](https://discord.com/invite/Xn26Q42DXD)[![Discord](https://img.shields.io/badge/Invitation-2319DC)](https://discord.com/invite/Xn26Q42DXD)
+[![Discord](https://img.shields.io/badge/Discord-2319DC)](https://discord.com/invite/Xn26Q42DXD)[![NeoMatrix](https://img.shields.io/badge/Neomatrix-white)](https://neomatrix.ai)
 ---
 [![English](https://img.shields.io/badge/docs-English-blue)](./README.md) [![한국어](https://img.shields.io/badge/docs-한국어-red)](./docs/README.ko.md)
 [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md)
 ---
-This repository is a notebook runner composed of `.ipynb` and `.py` files.
 
-It is primarily designed to run in a local environment such as [**Google Colab**](https://colab.research.google.com).  
-If you adjust the "Mount Google Drive" cell and specify your **personal path**, it can be easily adapted to other local environments as well.
+This repository is a notebook runner composed of `.ipynb` and `.py` files, designed primarily for [**Google Colab**](https://colab.research.google.com).
 
-To use the provided API functions, you must obtain a `data apikey` and `user key` from **NeoMatrix**.
+To use the provided API functions, you must obtain a `user key` from **NeoMatrix**.
 
-You can run backtests and live trading using either:  
-- your own custom strategies and configuration files, or  
+You can run backtests and live trading using either:
+- your own custom strategies and configuration files, or
 - the regularly updated strategies and settings shared via the [strategy](https://github.com/NeoMatrixAI/strategy) repository.
 
-### 📘 Notebook Usage Flow
+---
 
-#### 📂 Futures Trading (`notebooks/futures/`)
+### 📁 Structure
 
-For **futures trading**, follow these steps in order:
-
-1. **`1. download_sample.ipynb`**
-   → Downloads sample strategy files and configurations from the [strategy repository](https://github.com/NeoMatrixAI/strategy) to your Google Drive.
-
-2. **`2. futures_strategy_verify.ipynb`**
-   → Validates your custom strategy locally using mock data before uploading to the server. Checks that the strategy returns proper weight dictionaries and ensures the sum of absolute weights does not exceed 1.
-
-3. **`3. futures_backtest.ipynb`**
-   → Uploads your strategy and config files to the NeoMatrix server, then runs a backtest. Generates performance metrics and an optional HTML report.
-
-4. **`4. futures_trade.ipynb`**
-   → Executes live auto-trading with your verified strategy. Includes session management, log monitoring, and forced liquidation utilities for safe termination.
+```
+nb-runner/
+├── notebooks/
+│   └── futures/                              # Futures trading notebooks (execute in order 1→4)
+│       ├── 1. download_sample.ipynb          # Download sample strategies from strategy repo
+│       ├── 2. futures_strategy_verify.ipynb  # Validate strategy locally with mock data
+│       ├── 3. futures_backtest.ipynb         # Run backtest on NeoMatrix server
+│       └── 4. futures_trade.ipynb            # Execute live auto-trading
+├── module/
+│   ├── futures/                              # Futures trading API modules
+│   │   ├── account.py                        # Account balance operations
+│   │   ├── market.py                         # Market data fetching
+│   │   ├── position.py                       # Position management
+│   │   └── trade.py                          # Trade execution
+│   └── spot/                                 # Spot trading API modules (same structure)
+└── docs/                                     # Multi-language documentation
+```
 
 ---
+
+### 📦 How to Use
+
+1. Clone or download this repository
+2. Open notebooks in Google Colab (or adjust paths for local environment)
+3. Mount Google Drive and set your personal path
+4. Follow the notebook execution order:
+   - **`1. download_sample.ipynb`** → Download sample strategy files
+   - **`2. futures_strategy_verify.ipynb`** → Validate strategy locally
+   - **`3. futures_backtest.ipynb`** → Run backtest on server
+   - **`4. futures_trade.ipynb`** → Execute live trading
+
+Make sure you are also using the [strategy](https://github.com/NeoMatrixAI/strategy) repository, which contains the strategy modules and configuration files.
+
+---
+
 ### ❓ Support
 
 For questions or support, please reach out via the [**NeoMatrix Discord**](https://discord.gg/Xn26Q42DXD)

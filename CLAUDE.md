@@ -66,6 +66,27 @@ Strategies must return a dictionary in this format:
 
 All documentation files must stay synchronized.
 
+### README.md Structure Reference
+When updating README.md, follow the structure used in the [NeoMatrixAI/strategy](https://github.com/NeoMatrixAI/strategy) repository. Reference the local copy at `c:\Users\lhh\Desktop\aifinance\NeoMatrixAI\strategy\README.md` for the standard format:
+
+**Required sections:**
+1. Title with badges (Discord, NeoMatrix, Website)
+2. Language selector badges (English, 한국어, 简体中文)
+3. Brief description
+4. `### 📁 Structure` - Repository structure with code block
+5. `### 📦 How to Use` - Usage instructions
+6. `### ❓ Support` - Discord link for support
+
+**Badge format example:**
+```markdown
+[![Discord](https://img.shields.io/badge/Discord-2319DC)](https://discord.com/invite/Xn26Q42DXD)
+[![NeoMatrix](https://img.shields.io/badge/Neomatrix-white)](https://neomatrix.ai)
+---
+[![English](https://img.shields.io/badge/docs-English-blue)](./README.md)
+[![한국어](https://img.shields.io/badge/docs-한국어-red)](./docs/README.ko.md)
+[![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md)
+```
+
 ## Common Commands
 
 ```bash
