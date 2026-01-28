@@ -19,16 +19,21 @@ You can run backtests and live trading using either:
 
 ### 📘 Notebook Usage Flow
 
-The typical order of notebook execution is as follows:
+#### 📂 Futures Trading (`notebooks/futures/`)
 
-1. **`strategy_verify_test.ipynb`**  
-   → Validates your strategy by calling the NeoMatrix API server.
+For **futures trading**, follow these steps in order:
 
-2. **`backtest.ipynb`**  
-   → Runs a backtest using the verified strategy and your chosen configuration.
+1. **`1. download_sample.ipynb`**
+   → Downloads sample strategy files and configurations from the [strategy repository](https://github.com/NeoMatrixAI/strategy) to your Google Drive.
 
-3. **`trade.ipynb`**  
-   → Executes live auto-trading based on the strategy and final parameters derived from the backtest.
+2. **`2. futures_strategy_verify.ipynb`**
+   → Validates your custom strategy locally using mock data before uploading to the server. Checks that the strategy returns proper weight dictionaries and ensures the sum of absolute weights does not exceed 1.
+
+3. **`3. futures_backtest.ipynb`**
+   → Uploads your strategy and config files to the NeoMatrix server, then runs a backtest. Generates performance metrics and an optional HTML report.
+
+4. **`4. futures_trade.ipynb`**
+   → Executes live auto-trading with your verified strategy. Includes session management, log monitoring, and forced liquidation utilities for safe termination.
 
 ---
 ### ❓ Support
