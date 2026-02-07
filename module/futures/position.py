@@ -15,7 +15,11 @@ def all_positions(USER_KEY: str, productType: str, marginCoin: str) -> pd.DataFr
     }
 
     response = requests.post(url, json=json, headers=headers)
-
-    data = response.json()['data']
-    df = pd.DataFrame(data)
-    return df
+    
+    try:
+        data = response.json()['data']
+        df = pd.DataFrame(data)
+        return df
+    except:
+        print("There is no position")
+        return pd.DataFrame()
