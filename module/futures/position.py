@@ -1,8 +1,11 @@
 import pandas as pd
 import requests
 
-def all_positions(USER_KEY: str, productType: str, marginCoin: str) -> pd.DataFrame:
-    url = "https://bitgettrader.fin.cloud.ainode.ai/futures/position/all-positions"
+def all_positions(USER_KEY: str, paptrading: str, productType: str, marginCoin: str) -> pd.DataFrame:
+    if paptrading == 'live':
+        url = "https://bitgettrader.fin.cloud.ainode.ai/futures/position/all-positions"
+    elif paptrading == 'demo':
+        url = "https://bitgettrader.fin.cloud.ainode.ai/demo/futures/position/all-positions"
   
     headers = {
         "API-KEY": USER_KEY,
