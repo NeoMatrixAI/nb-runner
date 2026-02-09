@@ -2,8 +2,11 @@ import pandas as pd
 import requests
 from typing import Optional
 
-def flash_close_position(USER_KEY: str, symbol: Optional[str], productType: str, holdSide: Optional[str]) -> pd.DataFrame:
-    url = "https://bitgettrader.fin.cloud.ainode.ai/futures/trade/close-position"
+def flash_close_position(USER_KEY: str, paptrading: str, symbol: Optional[str], productType: str, holdSide: Optional[str]) -> pd.DataFrame:
+    if paptrading == 'live':
+        url = "https://bitgettrader.fin.cloud.ainode.ai/futures/trade/close-position"
+    elif paptrading == 'demo':
+        url = "https://bitgettrader.fin.cloud.ainode.ai/demo/futures/trade/close-position"
 
     headers = {
         "API-KEY": USER_KEY,
