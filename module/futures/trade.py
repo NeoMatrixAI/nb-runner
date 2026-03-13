@@ -7,6 +7,9 @@ def flash_close_position(USER_KEY: str, paptrading: str, symbol: Optional[str], 
         url = "https://bitgettrader.fin.cloud.ainode.ai/futures/trade/close-position"
     elif paptrading == 'demo':
         url = "https://bitgettrader.fin.cloud.ainode.ai/demo/futures/trade/close-position"
+    else:
+        print(f"Error: Trading Method '{paptrading}' does not exist")
+        raise ValueError(status_code=400, detail=f"Trading Method '{paptrading}' is not supported. Please enter 'live' or 'demo'.")
 
     headers = {
         "API-KEY": USER_KEY,

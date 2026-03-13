@@ -6,7 +6,10 @@ def all_positions(USER_KEY: str, paptrading: str, productType: str, marginCoin: 
         url = "https://bitgettrader.fin.cloud.ainode.ai/futures/position/all-positions"
     elif paptrading == 'demo':
         url = "https://bitgettrader.fin.cloud.ainode.ai/demo/futures/position/all-positions"
-  
+    else:
+        print(f"Error: Trading Method '{paptrading}' does not exist")
+        raise ValueError(status_code=400, detail=f"Trading Method '{paptrading}' is not supported. Please enter 'live' or 'demo'.")
+      
     headers = {
         "API-KEY": USER_KEY,
         "Target-Email": None
